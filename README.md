@@ -19,8 +19,13 @@ Don't worry about the host in the CSS URL since this will be ignored.
 If no CSS file is linked to in the HTML and no inline `<style type="text/css">`
 is present, it will try to load a default CSS file `email.css`.
 
-Every CSS file (including the default `email.css`) is loaded from within the
-app. The retrieval of the file depends on your assets configuration:
+Every CSS file (including the default `email.css`) is loaded automatically from within the
+app. 
+
+NOTE: You should not `<link>` the email stylesheet in your emails' templates - doing so will cause 
+your app to precompile assets for each email is sends out. 
+
+The retrieval of the file depends on your assets configuration:
 
 * Rails 3.1 asset pipeline: It will load the compiled version of the CSS asset
   which is normally located in `app/assets/stylesheets/`. If the asset can't be
